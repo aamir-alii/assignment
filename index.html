@@ -22,7 +22,7 @@
           placeholder="enter month"
           class="form-control mb-2"
         />
-        <button onclick="check()" class="btn btn-primary">Check</button>
+        <button id="btn" class="btn btn-primary">Check</button>
       </div>
     </div>
     <script>
@@ -41,8 +41,21 @@
         "Dec",
       ];
       const check = (_) => {
-        let month = 
+        let month = document.querySelector("#month").value;
+        for (let m of months)
+          if (m == month) {
+            return;
+          }
+        throw "Not in the list";
       };
+      try {
+        const btn = document.querySelector("#btn");
+        btn.addEventListener("click", (_) => {
+          check();
+        });
+      } catch (e) {
+        console.log(e);
+      }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
   </body>

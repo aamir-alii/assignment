@@ -1,4 +1,4 @@
-const mean = arr => {
+const mean = function(arr){
     let sum = 0;
     for ( elem of arr ) {
         sum += elem;
